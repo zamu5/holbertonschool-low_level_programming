@@ -1,0 +1,3 @@
+#!/bin/bash
+gcc -n $CFILE -o $(echo $Cfile | tr ".c" ".o")\
+
