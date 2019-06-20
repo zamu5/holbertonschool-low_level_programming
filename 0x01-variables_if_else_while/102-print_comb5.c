@@ -16,18 +16,18 @@ int main(void)
 			{
 				for (c = 48 ; c <= 57 ; c++)
 				{
-					if (((x*10) + y) < ((z*10) +c))
+					if (((x * 10) + y) < ((z * 10) + c))
 					{
 					putchar(x);
 					putchar(y);
 					putchar(32);
 					putchar(z);
-                                        putchar(c);
-						if (x != 57 || y != 56 || z != 57 || c != 57)
-						{
-						putchar(44);
-						putchar(32);
-						}
+					putchar(c);
+					if (x != 57 || y != 56 || z != 57 || c != 57)
+					{
+					putchar(44);
+					putchar(32);
+					}
 					}
 				}
 			}
