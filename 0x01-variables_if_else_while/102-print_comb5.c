@@ -16,7 +16,7 @@ int main(void)
 			{
 				for (c = 48 ; c <= 57 ; c++)
 				{
-					if ((x+y) <= (z+c))
+					if (((x+y) != (z+c)) && ((x+y) < (z+c)))
 					{
 					putchar(x);
 					putchar(y);
