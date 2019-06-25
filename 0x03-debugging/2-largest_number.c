@@ -24,9 +24,6 @@ int largest_number(int a, int b, int c)
 	{
 		c = c * -1;
 	}
-	printf("%d\n", a);
-	printf("%d\n", b);
-	printf("%d\n", c);
 	if ((a > b && b  > c) || (a > b && c > b))
 	{
 		largest = a;
