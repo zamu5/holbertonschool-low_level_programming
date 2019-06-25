@@ -24,11 +24,14 @@ int largest_number(int a, int b, int c)
 	{
 		c = c * -1;
 	}
-	if (a > b && b > c)
+	printf("%d\n", a);
+	printf("%d\n", b);
+	printf("%d\n", c);
+	if ((a > b && b  > c) || (a > b && c > b))
 	{
 		largest = a;
 	}
-	else if (b > c && c > a)
+	else if ((b > c  && c > a) || (b > c && a > c))
 	{
 		largest = b;
 	}
