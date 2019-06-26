@@ -1,5 +1,4 @@
 #include "holberton.h"
-#include <stdio.h>
 /**
  * times_table - % funtion
  *
@@ -9,35 +8,36 @@ void times_table(void)
 {
 	int x = 0, y = 0, z;
 
-	while (x <= 9)
+	for (x = 0 ; x <= 9 ; x++)
 	{
-		y = 0;
-		z = x * y;
-		printf("%d,", z);
-		y++;
-		while (y <= 9)
+		for (y = 0 ; y <= 9 ; y++)
 		{
 			z = x * y;
-			if (z < 10 && y < 9)
+			if (z == 0)
 			{
-				printf("  %d,", z);
+				if (y != 0)
+				{
+					_putchar(' ');
+				}
+				_putchar('0');
 			}
-			else if (z < 10 && y == 9)
+			else if (z <= 9)
 			{
-				printf("  %d", z);
+				_putchar(' ');
+				_putchar((z % 10) + '0');
 			}
-			else if (z >= 10 && y < 9)
+			else
 			{
-				printf(" %d,", z);
-			}
-			else if (z >= 10 && y == 9)
-			{
-				printf(" %d", z);
-			}
-			y++;
-		}
-		printf("\n");
-		x++;
+				_putchar((z / 10) + '0');
+				_putchar((z % 10) + '0');
 
+			}
+			if (y != 9)
+			{
+				_putchar(',');
+				_putchar(' ');
+			}
+		}
+		_putchar('\n');
 	}
 }
