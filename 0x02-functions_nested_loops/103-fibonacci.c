@@ -6,7 +6,7 @@
  */
 int main(void)
 {
-	long int ult = 1, penul = 0, sum = 0, even=0;
+	long int ult = 1, penul = 0, sum = 0, even = 0;
 
 	for (sum = 0 ; sum < 4000000 ; sum = ult + penul)
 	{
