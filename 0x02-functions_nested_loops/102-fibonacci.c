@@ -11,15 +11,9 @@ int main(void)
 	for (cont = 0 ; cont <= 50 ; cont++)
 	{
 		sum = ult + penul;
-		if (cont != 50)
-		{
-			printf("%ld, ", sum);
-		}
-		else
-		{
-			printf("%ld", sum);
-		}
+		printf("%ld, ", sum);
 		penul = ult;
 		ult = sum;
 	}
+	printf("\n");
 }
