@@ -1,13 +1,17 @@
 #include "holberton.h"
 /**
- * more_numbers - % funtion
  * imprimir - % print funtion
+ *@n: declaration
  * Return: Always 0 (Success)
  */
 int imprimir(int n)
 {
-	return _putchar(n + '0');
+	return (_putchar(n + '0'));
 }
+/**
+ * more_numbers - % funtion
+ * Return: Always 0 (Success)
+ */
 void more_numbers(void)
 {
 	int x = 0, y, d, u;
