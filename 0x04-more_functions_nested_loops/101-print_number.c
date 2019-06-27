@@ -1,5 +1,4 @@
 #include "holberton.h"
-#include <stdio.h>
 /**
  * largo - % funtion
  *@x: declaration
@@ -39,7 +38,6 @@ void print_number(int n)
 		s = s * a;
 		a = 10;
 	}
-	printf("%d", a);
 	for (y = 1 ; y <= z ; y++)
 	{
 		if (y != z)
