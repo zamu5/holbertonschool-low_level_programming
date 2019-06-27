@@ -23,4 +23,5 @@ int main(void)
 	}
 	sumatotal = suma3 + suma5;
 	printf("%d\n", sumatotal);
+	return (0);
 }
