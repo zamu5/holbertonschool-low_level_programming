@@ -23,4 +23,5 @@ int main(void)
 		ult = sum;
 	}
 	printf("\n");
+	return (0);
 }
