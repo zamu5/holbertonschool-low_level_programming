@@ -6,18 +6,20 @@
  */
 int main(void)
 {
-	int x, y, z, c;
-	int  suma3 = 0, suma5 = 0, sumatotal = 0;
+	int z, c, valor, suma3 = 0, suma5 = 0, sumatotal = 0;
 
-	x = 1023 / 3;
-	y = 1023 / 5;
-	for (z = 0 ; z <= x ; z++)
+	valor = 1024;
+
+	for (z = 0 ; z < valor ; z = z + 3)
 	{
-		suma3 = suma3 + (z * 3);
+		suma3 = suma3 + z;
 	}
-	for (c = 0 ; c <= y ; c++)
+	for (c = 0 ; c < valor ; c = c + 5)
 	{
-		suma5 = suma5 + (c * 5);
+		if ((c % 3) != 0)
+		{
+			suma5 = suma5 + c;
+		}
 	}
 	sumatotal = suma3 + suma5;
 	printf("%d\n", sumatotal);
