@@ -1,0 +1,1 @@
+This new project shows us pointer, arrays and strings.
