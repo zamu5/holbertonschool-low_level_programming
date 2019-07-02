@@ -1,7 +1,7 @@
 #include "holberton.h"
 /**
  * puts_half - print the second half of a number.
- *
+ *@str: declaration
  * Return: nothing.
  */
 void puts_half(char *str)
@@ -19,7 +19,7 @@ void puts_half(char *str)
 	}
 	for (j = cont / 2 ; str[j] != '\0' ; j++)
 	{
-		_putchar(j + '0');
+		_putchar(str[j]);
 	}
 	_putchar('\n');
 
