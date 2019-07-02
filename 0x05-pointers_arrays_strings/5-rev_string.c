@@ -1,7 +1,7 @@
 #include "holberton.h"
 /**
  * rev_string - switch the order of a string
- *
+ *@s: declaration
  * Return: reverse string.
  */
 void rev_string(char *s)
@@ -13,7 +13,7 @@ void rev_string(char *s)
 		cont++;
 		x++;
 	}
-	for (x = 0 , j = cont -1; x < cont / 2; x++ , j--)
+	for (x = 0, j = cont - 1; x < cont / 2; x++, j--)
 	{
 		z = s[x];
 		s[x] = s[j];
