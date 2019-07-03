@@ -8,7 +8,7 @@ int _atoi(char *s)
 {
 	int x, y = 0, cont = 0, sig = 0, ne = 0;
 
-	for (x = 0 ; !(s[x] > 47 && s[x] < 58) ; x++)
+	for (x = 0 ; (!(s[x] > 47 && s[x] < 58)) && (s[x] != '\0') ; x++)
 	{
 		ne = (s[x] == '-') ? ne + 1 : ne;
 		cont++;
@@ -18,6 +18,10 @@ int _atoi(char *s)
 	{
 		y = y * 10;
 		y = y + (*(s + x) - 48);
+	}
+	if (y == 0 && x == cont)
+	{
+		return (0);
 	}
 	return (y * sig);
 }
