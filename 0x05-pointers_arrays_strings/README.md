@@ -1,1 +1,1 @@
-This new project shows us pointer, arrays and strings.
+This new project shows us pointer, arrays and strings.whit change
