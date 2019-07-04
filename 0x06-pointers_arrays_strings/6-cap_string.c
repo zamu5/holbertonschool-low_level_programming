@@ -1,7 +1,7 @@
 #include "holberton.h"
 /**
  * cap_string - check the code for Holberton School students.
- *
+ *@s: declaration
  * Return: Always 0.
  */
 char *cap_string(char *s)
