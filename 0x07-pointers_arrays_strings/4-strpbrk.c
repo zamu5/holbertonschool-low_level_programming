@@ -1,7 +1,8 @@
 #include "holberton.h"
 /**
- * main - check the code for Holberton School students.
- *
+ * _strpbrk - Write a function that searches a string for any of a set of bytes
+ * @s: declaration
+ * @accept: declaration
  * Return: Always 0.
  */
 char *_strpbrk(char *s, char *accept)
@@ -12,11 +13,11 @@ char *_strpbrk(char *s, char *accept)
 	{
 		for (y = 0 ; accept[y] != '\0' ; y++)
 		{
-			if(s[x] == accept[y])
+			if (s[x] == accept[y])
 				flag++;
 		}
-		if(flag != 0)
+		if (flag != 0)
 			return (s + x);
 	}
-	return (s + x);
+	return (0);
 }
