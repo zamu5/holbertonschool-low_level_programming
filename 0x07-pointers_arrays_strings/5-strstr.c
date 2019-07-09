@@ -1,31 +1,32 @@
 #include "holberton.h"
 /**
- * main - check the code for Holberton School students.
- *
+ * _strstr - Write a function that locates a substring.
+ * @haystack: declaration
+ * @needle: declaration
  * Return: Always 0.
  */
 char *_strstr(char *haystack, char *needle)
 {
-	int x = 0, y, s, d, f = 0, length = 0;
+	int x = 0, y, s, d, f, length;
 
 	while (needle[x] != '\0')
 		x++;
 	length = x;
-	for (x = 0 ; needle[x] != '\0' ; x++)
+	for (x = 0, f = 0 ; haystack[x] != '\0' ; x++, f = 0)
 	{
-		for (y = 0 ; haystack[y] != '\0' ; y++)
+		for (y = 0 ; needle[y] != '\0' ; y++)
 		{
 			s = x;
 			d = y;
-			while (needle[s] == haystack[d] && needle[s] != '\0')
+			while (haystack[s] == needle[d] && needle[d] != '\0')
 			{
 				f++;
 				s++;
 				d++;
 			}
 			if (f == length)
-				return (haystack + y);
+				return (haystack + x);
 		}
 	}
-	return ('\0');
+	return (0);
 }
