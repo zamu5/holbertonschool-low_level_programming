@@ -1,11 +1,11 @@
 #include "holberton.h"
 /**
- * _sqrt - check the code for Holberton School students.
+ * _sqrt - my fu**kin funtion
  * @a: declaration
  * @b: delcaration
  * Return: Always 0.
  */
-int _sqrt(int a, int b)
+int _sqrt(int x, int y)
 {
 	if (y * y == x)
 		return (b);
@@ -14,7 +14,7 @@ int _sqrt(int a, int b)
 	return (_sqrt(x, y + 1));
 }
 /**
- * _sqrt_recursion - check the code for Holberton School students.
+ * _sqrt_recursion - the natural square root of a number.
  * @n: declaration
  * Return: Always 0.
  */
