@@ -3,6 +3,7 @@
  * _prime - my fu**kin funtion
  * @x: declaration
  * @y: delcaration
+ * @z: declaration
  * Return: Always 0.
  */
 int _prime(int x, int y, int z)
@@ -11,7 +12,7 @@ int _prime(int x, int y, int z)
 	{
 		if (x % y == 0)
 			z++;
-		return(_prime(x, y + 1, z));
+		return (_prime(x, y + 1, z));
 	}
 	if (z == 2)
 		return (1);
@@ -19,7 +20,7 @@ int _prime(int x, int y, int z)
 
 }
 /**
- * _sqrt_recursion - the natural square root of a number.
+ * is_prime_number - the natural square root of a number.
  * @n: declaration
  * Return: Always 0.
  */
