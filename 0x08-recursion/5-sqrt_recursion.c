@@ -1,8 +1,8 @@
 #include "holberton.h"
 /**
  * _sqrt - my fu**kin funtion
- * @a: declaration
- * @b: delcaration
+ * @x: declaration
+ * @y: delcaration
  * Return: Always 0.
  */
 int _sqrt(int x, int y)
