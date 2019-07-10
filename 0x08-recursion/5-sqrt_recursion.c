@@ -8,7 +8,7 @@
 int _sqrt(int x, int y)
 {
 	if (y * y == x)
-		return (b);
+		return (y);
 	if (y * y > x)
 		return (-1);
 	return (_sqrt(x, y + 1));
