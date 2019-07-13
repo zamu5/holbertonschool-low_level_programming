@@ -1,12 +1,12 @@
-include "holberton.h"
+#include "holberton.h"
 /**
  * main - return the name of the file
- *
+ * @argc: declaration
+ * @argv: declaration
  * Return: Always 0.
  */
-int main (int argc, char* argv[])
+int main (int argc __attribute__((unused)), char* argv[])
 {
-	argc _attribute_((unused));
 	printf("%s\n", argv[0]);
 	return (0);
 }
