@@ -28,7 +28,7 @@ int main(int argc, char *argv[])
 			printf("%d\n", monedas);
 		}
 		else
-			return (0);
+			printf("0\n");
 	}
 	else
 	{
