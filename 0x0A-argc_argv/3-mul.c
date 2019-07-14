@@ -17,6 +17,9 @@ int main(int argc, char *argv[])
 		argc++;
 	}
 	else
+	{
 		printf("Error\n");
-	return (1);
+		return (1);
+	}
+	return (0);
 }
