@@ -7,13 +7,14 @@
  */
 int main(int argc, char *argv[])
 {
-	int x, y;
-	
+	int x, y, m;
+
 	if (argc == 3)
 	{
 		x = atoi(argv[1]);
 		y = atoi(argv[2]);
-		printf("%d\n", x * y);
+		m = x * y;
+		printf("%d\n", m);
 		argc++;
 	}
 	else
