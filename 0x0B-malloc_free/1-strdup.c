@@ -22,9 +22,9 @@ char *_strdup(char *str)
 	if (str != 0)
 	{
 		p = malloc(sizeof(char) * (x + 1));
-		s = (char *)p;
 		if (p != 0)
 		{
+			s = (char *)p;
 			for (y = 0; str[y] != '\0'; y++)
 			{
 				s[y] = str[y];
