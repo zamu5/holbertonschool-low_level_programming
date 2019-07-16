@@ -2,8 +2,8 @@
 #include <stdlib.h>
 
 /**
- * alloc_grid - returns a pointer to 2 dimensional array of integers.
- * @gid: declaration
+ * free_grid - returns a pointer to 2 dimensional array of integers.
+ * @grid: declaration
  * @height: declaration
  * Return:a pointer to a new string.
  */
