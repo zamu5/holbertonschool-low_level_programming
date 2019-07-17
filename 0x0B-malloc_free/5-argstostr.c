@@ -22,9 +22,9 @@ char *argstostr(int ac, char **av)
 		len = len + y;
 	}
 	p = malloc(sizeof(char) * len);
-	s = (char *)p;
 	if (p != 0)
 	{
+		s = (char *)p;
 		for (x = 0; x < ac; x++)
 		{
 			for (y = 0; *(*(av + x) + y) != '\0'; y++, z++)
