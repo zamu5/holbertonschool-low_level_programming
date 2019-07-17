@@ -12,15 +12,19 @@ char **strtow(char *str)
 {
 	char **m = NULL;
 	char *p = NULL;
-	int x, y, c, n, z = 0, len, words = 0, start = 0;
-
+	int x, y, c, z = 0, len, words = 0, start = 0;
+	if(str == 0)
+		return (NULL);
 	for (x = 0; *(str + x) != '\0'; x++)
 	{
-		if (*(str + x) != 32 && (*(str + (x + 1)) == 32 || *(str + (x + 1)) == 0))
+		if (*(str + x) != 32 && (*(str + (x + 1)) == 32 ||
+					 *(str + (x + 1)) == 0))
 			words++;
 		if (*(str + x) == 32 && words == 0)
 			start++;
 	}
+	if (words == 0)
+		return (NULL);
 	m = (char **) malloc(sizeof(char *) * (words + 1));
 	if (m != 0)
 	{
@@ -39,12 +43,7 @@ char **strtow(char *str)
 					*(*(m + x) + y) = *(str + (c - len));
 			}
 			else
-			{
-				for (n = 0; n < x; n++)
-					free(*(m + n));
-				free(m);
 				return (NULL);
-			}
 			for (; str[z] == 32; z++)
 				;
 		}
