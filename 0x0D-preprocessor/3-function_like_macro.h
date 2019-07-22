@@ -1,5 +1,5 @@
 #ifndef ABSOLUTE
-#define ABSOLURE
+#define ABSOLUTE
 
 #define ABS(x) (((x) < (0)) ? ((x) * (-1)) : (x))
 
