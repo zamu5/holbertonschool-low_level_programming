@@ -1,57 +1,35 @@
 #include "holberton.h"
 /**
- * largo - % funtion
- *@x: declaration
- * Return: Always 0 (Success)
- */
-int largo(int x)
-{
-	int cont = 1;
-
-	while (x > 1)
-	{
-		x = x / 10;
-		if (x > 0)
-		{
-			cont = cont + 1;
-		}
-	}
-	return (cont);
-}
-#include "holberton.h"
-/**
- * print_number - % funtion
- *@n: declaration
- * Return: Always 0 (Success)
+ * print_number - print the number
+ * @n: input
+ * Return: return the number
  */
 void print_number(int n)
 {
-	int y, z, f, q, a = 1, s = 10;
+	unsigned int j, cont = 1;
+	unsigned int var1, num, var2, var3 = 1;
 
-	z = largo(n);
 	if (n < 0)
 	{
-		n = n * -1;
+		_putchar(45);
+		var2 = n * (-1);
 	}
-	for (q = 1 ; q < z ; q++)
+	else
 	{
-		s = s * a;
-		a = 10;
+		var2 = n;
 	}
-	for (y = 1 ; y <= z ; y++)
+	num = var2;
+	while (num > 9)
 	{
-		if (y != z)
-		{
-
-			f = n / s;
-			_putchar(f + '0');
-		}
-		else
-		{
-			f = n % 10;
-			_putchar(f + '0');
-		}
-		n = n % s;
-		s = s / 10;
+		num = num / 10;
+		cont++;
+		var3 = var3 * 10;
+	}
+	for (j = 1; j <= cont; j++)
+	{
+		var1 = var2 / var3;
+		var2 = var2 % var3;
+		var3 = var3 / 10;
+		_putchar ('0' + var1);
 	}
 }
