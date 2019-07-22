@@ -1,36 +1,45 @@
+#include "holberton.h"
 #include <stdio.h>
 /**
- * main - % funtion
+ * main - largest prime factor.
  *
- * Return: print the bigger prime number
+ * Return: Always 0.
  */
 int main(void)
 {
-	int i = 1, x, k;
-	long int num, mayor = 0;
-	num = 612852475143;
-	while (i <= num)
-	{
-		k = 0;
-		if (num % i == 0)
-		{
-			x = 1;
-			while (x <= i)
-			{
-				if (i % x == 0)
-				{
-					k++;
-				}
-				x++;
-			}
-			if (k==2)
-			{
-				mayor = i;
+	long int i, j;
+	long int num, prueba, aux = 0, aux2 = 0;
 
+	num = 612852475143;
+
+	for (i = 2; i <= num; i++)
+	{
+		prueba = 0;
+
+		if ((num % i) == 0)
+		{
+			for (j = 2; j <= i; j++)
+			{
+				if (!(j == i))
+				{
+					if ((i % j) == 0)
+					{
+						prueba = 1;
+						break;
+					}
+				}
+			}
+			if (prueba == 0)
+			{
+				aux2 = i;
+				if (aux <= aux2)
+				{
+					aux = aux2;
+					num = num / aux;
+				}
 			}
 		}
-		i++;
 	}
-	printf("%ld\n", mayor);
+	printf("%ld\n", aux);
 	return (0);
 }
