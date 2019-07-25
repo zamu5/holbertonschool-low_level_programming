@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include <stdlib.h>
 /**
  * op_add - add two numbers
  * @a: number 1
@@ -7,7 +7,7 @@
  */
 int op_add(int a, int b)
 {
-	return((a + b));
+	return ((a + b));
 }
 /**
  * op_sub - substract two numbers
