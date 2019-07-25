@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "3-calc.h"
+#include <string.h>
 /**
  * get_op_func - pointer to correct function
  * @s: opertator
@@ -17,12 +18,10 @@ int (*get_op_func(char *s))(int, int)
 		};
 	int i = 0;
 
+	if (strlen(s) != 1)
+		return NULL;
 	while (*ops[i].op != *(s + 0))
-	{
-		if (s[1] != '\0' || i > 4)
-			return (NULL);
 		i++;
-	}
 	return (*ops[i].f);
 
 }
