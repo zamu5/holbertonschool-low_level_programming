@@ -18,10 +18,10 @@ int (*get_op_func(char *s))(int, int)
 		};
 	int i = 0;
 
-	if (strlen(s) != 1)
-		return NULL;
 	while (*ops[i].op != *(s + 0))
 		i++;
+	if (i > 4)
+		return (NULL);
 	return (*ops[i].f);
 
 }
