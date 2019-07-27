@@ -8,8 +8,10 @@
 void pstring(va_list value)
 {
 	if (value == NULL)
+	{
 		printf("(nil)");
-	else
+		return;
+	}
 		printf("%s", va_arg(value, char*));
 }
 /**
