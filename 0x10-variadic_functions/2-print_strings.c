@@ -12,7 +12,7 @@ void print_strings(const char *separator, const unsigned int n, ...)
 	unsigned int x;
 	char *word;
 
-	if (n == NULL)
+	if (n == 0)
 	{
 		printf("\n");
 		return;
