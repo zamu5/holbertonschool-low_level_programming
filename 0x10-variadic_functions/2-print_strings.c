@@ -12,6 +12,11 @@ void print_strings(const char *separator, const unsigned int n, ...)
 	unsigned int x;
 	char *word;
 
+	if (n == NULL)
+	{
+		printf("\n");
+		return;
+	}
 	va_start(arguments, n);
 	for (x = 0; x < n; x++)
 	{
