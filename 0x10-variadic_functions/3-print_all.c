@@ -8,7 +8,10 @@
  */
 void pstring(va_list value)
 {
-	printf("%s", va_arg(value, char*));
+	if (value == NULL)
+		printf("(nil)");
+	else
+		printf("%s", va_arg(value, char*));
 }
 /**
  * pfloat - print a float.
@@ -46,6 +49,7 @@ void print_all(const char * const format, ...)
 {
 	va_list arguments;
 	unsigned int x = 0, y;
+	char *p;
 
 	va_start(arguments, format);
 
@@ -55,19 +59,16 @@ void print_all(const char * const format, ...)
 		{"f", pfloat},
 		{"s", pstring}
 	};
-
-	while (format[x] != '\0' && format != NULL)
+	x = 0;
+	p = "";
+	while (format != NULL && format[x / 4] != '\0')
 	{
-		y = 0;
-		while (y < 4)
+		y = x % 4;
+		if (*optiontype[y].type == format[x / 4])
 		{
-			if (*optiontype[y].type == format[x])
-			{
-				optiontype[y].ftype(arguments);
-				if (format[x + 1] != '\0')
-					printf(" ,");
-			}
-			y++;
+			printf("%s", p);
+			optiontype[y].ftype(arguments);
+			p = ", ";
 		}
 		x++;
 	}
