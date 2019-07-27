@@ -50,15 +50,14 @@ void print_all(const char * const format, ...)
 	va_list arguments;
 	unsigned int x = 0, y;
 	char *p;
-
-	va_start(arguments, format);
-
 	fmt optiontype[] = {
 		{"c", pchar},
 		{"i", pint},
 		{"f", pfloat},
 		{"s", pstring}
 	};
+	
+	va_start(arguments, format);
 	x = 0;
 	p = "";
 	while (format != NULL && format[x / 4] != '\0')
