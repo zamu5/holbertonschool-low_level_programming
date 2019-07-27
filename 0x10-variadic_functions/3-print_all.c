@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdarg.h>
 #include "variadic_functions.h"
 /**
  * pstring - print a srting.
@@ -56,7 +55,7 @@ void print_all(const char * const format, ...)
 		{"f", pfloat},
 		{"s", pstring}
 	};
-	
+
 	va_start(arguments, format);
 	x = 0;
 	p = "";
