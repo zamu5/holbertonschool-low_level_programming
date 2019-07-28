@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdarg.h>
 #include "variadic_functions.h"
 /**
  * pstring - print a srting.
@@ -12,7 +13,7 @@ void pstring(va_list value)
 		printf("(nil)");
 		return;
 	}
-		printf("%s", va_arg(value, char*));
+	printf("%s", va_arg(value, char*));
 }
 /**
  * pfloat - print a float.
@@ -59,16 +60,19 @@ void print_all(const char * const format, ...)
 	};
 
 	va_start(arguments, format);
-	x = 0;
 	p = "";
-	while (format != NULL && format[x / 4] != '\0')
+	while (format != NULL && format[x] != '\0')
 	{
-		y = x % 4;
-		if (*optiontype[y].type == format[x / 4])
+		y = 0;
+		while (y < 4)
 		{
-			printf("%s", p);
-			optiontype[y].ftype(arguments);
-			p = ", ";
+			if (*optiontype[y].type == format[x])
+			{
+				printf("%s", p);
+				optiontype[y].ftype(arguments);
+				p = ", ";
+			}
+			y++;
 		}
 		x++;
 	}
