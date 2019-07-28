@@ -8,12 +8,12 @@
  */
 void pstring(va_list value)
 {
-	if (value == NULL)
-	{
-		printf("(nil)");
-		return;
-	}
-	printf("%s", va_arg(value, char*));
+	char *p;
+
+	p = va_arg(value, char*);
+	if (p == NULL)
+		p = "(nil)";
+	printf("%s", p);
 }
 /**
  * pfloat - print a float.
@@ -31,7 +31,7 @@ void pfloat(va_list value)
  */
 void pint(va_list value)
 {
-	printf("%d", va_arg(value, int));
+	printf("%i", va_arg(value, int));
 }
 /**
  * pchar - print a char.
