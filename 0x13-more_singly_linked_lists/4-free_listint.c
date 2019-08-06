@@ -14,5 +14,6 @@ void free_listint(listint_t *head)
 		free(head);
 		head = copy;
 	}
+	free(head);
 	free(copy);
 }
