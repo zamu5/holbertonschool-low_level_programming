@@ -12,13 +12,22 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	unsigned int cont = 0;
 
 	copy1 = *head;
+	if (head == NULL)
+		return (NULL);
+	new = malloc(sizeof(listint_t));
+	if (new == NULL)
+		return (NULL);
+
+	if (idx == 0 && *head == NULL)
+	{
+		(*new).n = n;
+		*head = new;
+		return(*head);
+	}
 	while (copy1 != NULL)
 	{
 		if (idx == 0)
 		{
-			new = malloc(sizeof(listint_t));
-			if (new == NULL)
-				return (NULL);
 			(*new).n = n;
 			(*new).next = copy1;
 			*head = new;
@@ -26,9 +35,6 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 		}
 		if (cont == (idx - 1))
 		{
-			new = malloc(sizeof(listint_t));
-			if (new == NULL)
-				return (NULL);
 			(*new).n = n;
 			(*new).next = (*copy1).next;
 			(*copy1).next = new;
