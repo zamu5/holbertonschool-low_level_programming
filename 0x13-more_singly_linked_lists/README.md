@@ -6,19 +6,19 @@
 <h3>More Info</h3>
 Please use this data structure for this project:
 
-/**
- * struct listint_s - singly linked list
- * @n: integer
- * @next: points to the next node
- *
- * Description: singly linked list node structure
- * for Holberton project
- */
-typedef struct listint_s
-{
-    int n;
-    struct listint_s *next;
-} listint_t;
+
+ struct listint_s - singly linked list
+ @n: integer
+ @next: points to the next node
+
+ Description: singly linked list node structure
+ for Holberton project
+
+typedef struct listint_s<br>
+{<br>
+    int n;<br>
+    struct listint_s *next;<br>
+} listint_t;<br>
  <h2>Tasks/<h2>
  <h3>0. Print list</h3>
 Write a function that prints all the elements of a listint_t list.
@@ -42,7 +42,7 @@ Write a function that adds a new node at the beginning of a listint_t list.
 Write a function that adds a new node at the end of a listint_t list.
 
 <ul><li>Prototype: listint_t *add_nodeint_end(listint_t **head, const int n);</li>
-<li>Return: the address of the new element, or NULL if it failed
+<li>Return: the address of the new element, or NULL if it failed</li></ul>
 
 <h3>4. Free list mandatory</h3>
 Write a function that frees a listint_t list.
