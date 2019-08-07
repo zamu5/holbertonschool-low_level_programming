@@ -19,6 +19,8 @@ listint_t *find_listint_loop(listint_t *head)
 		copy2 = head;
 		while (copy1 && copy2 != copy1)
 		{
+			if (copy2 == NULL)
+				return (NULL);
 			if (copy2 == (*copy1).next)
 				return (copy2);
 			copy2 = (*copy2).next;
