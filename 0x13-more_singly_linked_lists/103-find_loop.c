@@ -24,5 +24,5 @@ listint_t *find_listint_loop(listint_t *head)
 			copy2 = (*copy2).next;
 		}
 	}
-	return (copy1);
+	return (NULL);
 }
