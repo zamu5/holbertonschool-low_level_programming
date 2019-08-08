@@ -14,9 +14,9 @@ void print_binary(unsigned long int n)
 		_putchar(48);
 		return;
 	}
-	while (i < 32)
+	while (i < 64)
 	{
-		c = mask << (31 - i) & n;
+		c = mask << (63 - i) & n;
 		if (c)
 			flag = 1;
 		if (flag)
