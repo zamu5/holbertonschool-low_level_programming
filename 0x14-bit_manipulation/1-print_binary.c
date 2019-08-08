@@ -10,7 +10,10 @@ void print_binary(unsigned long int n)
 	int i = 0, flag = 0;
 
 	if (n == 0)
+	{
 		_putchar(48);
+		return;
+	}
 	while (i < 32)
 	{
 		c = mask << (31 - i) & n;
