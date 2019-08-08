@@ -24,14 +24,16 @@ int _pow(int a, int b)
 unsigned int binary_to_uint(const char *b)
 {
 	unsigned int sum = 0, data = 0, d;
-	int flag = 0, len, len1, i;
+        int flag = 0, len, len1, i;
 
+	if(!b)
+		return (0);
 	for (len = 0; b[len] != '\0'; len++)
 	{
 		if (b[len] != 48 && b[len] != 49)
 			flag = 1;
 	}
-	if (flag || b == NULL)
+	if (flag)
 		return (0);
 	flag = 0;
 	len1 = len - 1;
