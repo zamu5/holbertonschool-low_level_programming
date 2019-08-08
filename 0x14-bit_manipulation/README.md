@@ -2,6 +2,8 @@
 <ul><li>Look for the right source of information without too much help</li>
 <li>How to manipulate bits and use bitwise operators</li></ul>
 
+<img src="oc.png">
+
 <h2>Tasks</h2>
 <h3>0. 0 mandatory</h3>
 Write a function that converts a binary number to an unsigned int.

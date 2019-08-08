@@ -24,16 +24,12 @@ int _pow(int a, int b)
 unsigned int binary_to_uint(const char *b)
 {
 	unsigned int sum = 0, data = 0, d;
-	int flag = 0, len, len1, i, base = 1;
+	int flag = 0, len, len1, i;
 
 	for (len = 0; b[len] != '\0'; len++)
 	{
 		if (b[len] != 48 && b[len] != 49)
-		{
 			flag = 1;
-			break;
-		}
-		base = base * 10;
 	}
 	if (flag || b == NULL)
 		return (0);
@@ -43,7 +39,7 @@ unsigned int binary_to_uint(const char *b)
 	{
 		if (b[i] == 49)
 		{
-			d = _poww(2, len1);
+			d = _pow(2, len1);
 			data = data + d;
 		}
 	}
