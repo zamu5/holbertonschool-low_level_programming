@@ -1,4 +1,5 @@
 #include "holberton.h"
+#include "limits.h"
 /**
  * _pow - a pow b
  * @a: data
@@ -23,8 +24,8 @@ int _pow(int a, int b)
 
 unsigned int binary_to_uint(const char *b)
 {
-	unsigned int sum = 0, data = 0, d;
-	int flag = 0, len, len1, i;
+	unsigned long int data = 0, d;
+	unsigned long int flag = 0, len, len1, i;
 
 	if (!b)
 		return (0);
@@ -45,14 +46,5 @@ unsigned int binary_to_uint(const char *b)
 			data = data + d;
 		}
 	}
-	while ((len - 1) >= 0)
-	{
-		d = ((1 << (len - 1)) & data);
-		if (d)
-			flag = 1;
-		if (flag)
-			sum = sum + d;
-		len--;
-	}
-	return (sum);
+	return (data);
 }
