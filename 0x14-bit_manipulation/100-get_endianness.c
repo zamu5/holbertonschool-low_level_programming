@@ -5,8 +5,5 @@
  */
 int get_endianness(void)
 {
-	int i = 1, e;
-
-	e = i >> sizeof(int) & 1 ? 0 : 1;
-	return (e);
+	return (1 >> sizeof(int) & 1 ? 0 : 1);
 }
