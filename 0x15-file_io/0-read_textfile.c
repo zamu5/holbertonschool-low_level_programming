@@ -7,7 +7,7 @@
  */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	int of, rf, wf, cf;
+	int of = 0, rf, wf = 0, cf;
 	unsigned int cont = 1;
 	char buf;
 
