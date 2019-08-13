@@ -15,10 +15,11 @@ int create_file(const char *filename, char *text_content)
 		cont++;
 	nf = open(filename, O_CREAT | O_RDWR | O_TRUNC, 0600);
 	if (nf == -1)
-		return (nf);
+		return (-1);
 	if (text_content != NULL)
 		wf = write(nf, text_content, cont);
 	if (wf == -1 || wf != cont)
-		return (wf);
+		return (-1);
+	close(nf);
 	return (1);
 }
