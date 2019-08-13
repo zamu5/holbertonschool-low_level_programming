@@ -7,30 +7,27 @@
  */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	int file, retval, readval;
-	unsigned int i;
-	char buff;
+	int of, rf, wf, cf;
+	unsigned int cont = 0;
+	char buf;
 
-	file = retval = i = 0;
 	if (filename == NULL)
 		return (0);
-	file = open(filename, O_RDWR);
-	if (file == -1)
+	of = open(filename, O_RDWR);
+	if (of == -1)
 		return (0);
-	readval = read(file, &buff, 1);
-	if (readval == -1)
-		return (0);
-	for (i = 0; readval != 0 && i != letters; i++)
+	do
 	{
-		retval = write(STDOUT_FILENO, &buff, 1);
-		if (retval == -1)
+		rf = read(of, &buf, 1);
+		if (rf == -1)
 			return (0);
-		readval = read(file, &buff, 1);
-		if (readval == -1)
+		wf = write(STDOUT_FILENO, &buf, 1);
+		if (wf == -1)
 			return (0);
-	}
-	readval = close(file);
-	if (readval == -1)
+		cont++;
+	} while (rf != 0 && cont != letters);
+	cf = close(of);
+	if (cf == -1)
 		return (0);
-	return (i);
+	return(cont);
 }
