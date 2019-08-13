@@ -8,7 +8,7 @@
 ssize_t read_textfile(const char *filename, size_t letters)
 {
 	int of, rf, wf, cf;
-	unsigned int cont = 0;
+	unsigned int cont = 1;
 	char buf;
 
 	if (filename == NULL)
@@ -16,16 +16,19 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	of = open(filename, O_RDWR);
 	if (of == -1)
 		return (0);
-	do
+	rf = read(of, &buf, 1);
+	if (rf == -1)
+		return (0);
+	while (rf != 0 && cont != letters)
 	{
-		rf = read(of, &buf, 1);
-		if (rf == -1)
-			return (0);
+		++cont;
 		wf = write(STDOUT_FILENO, &buf, 1);
 		if (wf == -1)
 			return (0);
-		cont++;
-	} while (rf != 0 && cont != letters);
+		rf = read(of, &buf, 1);
+		if (rf == -1)
+			return (0);
+	}
 	cf = close(of);
 	if (cf == -1)
 		return (0);
