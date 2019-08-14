@@ -46,23 +46,27 @@ int main(int ac, char *av[])
 		       S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
 	r = read(ff, buf, 1024);
 	if (r == -1)
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]),
-			exit(98);
+		printerror(98, av[1]);
 	while (r != 0)
 	{
 		e = write(ft, buf, r);
 		if (e == -1 || e != r)
-			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]), exit(99);
+			printerror(99, av[2]);
 		r = read(ff, buf, 1024);
 		if (r == -1)
-			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]),
-				exit(98);
+			printerror(98, av[1]);
 	}
 	e = close(ff);
 	if (e == -1)
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", ff), exit(100);
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", ff);
+		exit(100);
+	}
 	e = close(ft);
 	if (e == -1)
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", ft), exit(100);
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", ft);
+		exit(100);
+	}
 	return (0);
 }
