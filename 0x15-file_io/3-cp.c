@@ -1,11 +1,29 @@
 #include "holberton.h"
 #include <stdio.h>
 /**
- * main - copies a file
- *
- * @argc: argument cont
- * @argv: arguments
- * Return: Returns 97 for syntax error, 98 for read error, 99 write, 100 close
+ * printerror - printerror
+ * @n: error
+ * @p: string
+ * Return: nothing
+ */
+void printerror(int n, char *p)
+{
+	if (n == 97)
+	{
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
+		exit(97);
+	}
+	if (n == 98)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", p);
+		exit(98);
+	}
+}
+/**
+ * main - copy a file
+ * @ac: the number of arguments
+ * @av: arguments
+ * Return: nothing
  */
 int main(int ac, char *av[])
 {
@@ -13,8 +31,7 @@ int main(int ac, char *av[])
 	char buf[1024];
 
 	if (ac != 3)
-		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n"),
-			exit(97);
+		printerror(97, av[1]);
 	if (av[1] == NULL)
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]),
 			exit(98);
