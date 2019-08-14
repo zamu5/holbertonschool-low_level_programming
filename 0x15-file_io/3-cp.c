@@ -7,35 +7,35 @@
  * @argv: arguments
  * Return: Returns 97 for syntax error, 98 for read error, 99 write, 100 close
  */
-int main(int argc, char *argv[])
+int main(int ac, char *av[])
 {
 	int ff, ft, r, e = 1;
 	char buf[1024];
 
-	if (argc != 3)
+	if (ac != 3)
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n"),
 			exit(97);
-	if (argv[1] == NULL)
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]),
+	if (av[1] == NULL)
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]),
 			exit(98);
-	if (argv[2] == NULL)
-		dprintf(STDERR_FILENO, "Erro\r: Can't write to file %s\n", argv[2]),
+	if (av[2] == NULL)
+		dprintf(STDERR_FILENO, "Erro\r: Can't write to file %s\n", av[2]),
 			exit(99);
-	ff = open(argv[1], O_RDONLY);
-	ft = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC,
+	ff = open(av[1], O_RDONLY);
+	ft = open(av[2], O_WRONLY | O_CREAT | O_TRUNC,
 		       S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
 	r = read(ff, buf, 1024);
 	if (r == -1)
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]),
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]),
 			exit(98);
 	while (r != 0)
 	{
 		e = write(ft, buf, r);
 		if (e == -1 || e != r)
-			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]), exit(99);
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]), exit(99);
 		r = read(ff, buf, 1024);
 		if (r == -1)
-			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]),
+			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]),
 				exit(98);
 	}
 	e = close(ff);
