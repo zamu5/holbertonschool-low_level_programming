@@ -32,9 +32,10 @@ void printerror(int n, char *p)
  */
 int main(int ac, char *av[])
 {
-	int ff, ft, rff, ctf, cf;
+	int ff, ft, r, e;
 	char buf[1024];
 
+	e = 1;
 	if (ac != 3)
 		printerror(97, av[1]);
 	if (av[1] == NULL)
@@ -42,32 +43,25 @@ int main(int ac, char *av[])
 	if (av[2] == NULL)
 		printerror(99, av[2]);
 	ff = open(av[1], O_RDONLY);
-	rff = read(ff, buf, 1024);
-	if (rff == -1)
-		printerror(98, av[1]);
 	ft = open(av[2], O_WRONLY | O_CREAT | O_TRUNC,
 		       S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
-	while (rff != 0)
+	r = read(ff, buf, 1024);
+	if (r == -1)
+		printerror(98, av[1]);
+	while (r != 0)
 	{
-		ctf = write(ft, buf, rff);
-		if (ctf == -1)
+		e = write(ft, buf, r);
+		if (e == -1 || e != r)
 			printerror(99, av[2]);
-		rff = read(ff, buf, 1024);
-		if (rff == -1)
+		r = read(ff, buf, 1024);
+		if (r == -1)
 			printerror(98, av[1]);
 	}
-	cf = close(ff);
-	if (cf == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", ff);
-		exit(100);
-	}
-	cf = close(ft);
-	if (cf == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", ft);
-		exit(100);
-	}
+	e = close(ff);
+	if (e == -1)
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", ff), exit(100);
+	e = close(ft);
+	if (e == -1)
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", ft), exit(100);
 	return (0);
-
 }
