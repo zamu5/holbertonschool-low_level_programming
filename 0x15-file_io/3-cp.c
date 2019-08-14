@@ -1,53 +1,59 @@
 #include <stdio.h>
 #include "holberton.h"
 /**
- * main - copy a file
- * @ac: the number of arguments
- * @ag: arguments
+ * printerror - printerror
+ * @n: error
+ * @p: string
  * Return: nothing
  */
-int main (int ac, char *av[])
+void printerror(int n, char *p)
+{
+	if (n == 97)
+	{
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
+		exit(97);
+	}
+	if (n == 98)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", p);
+		exit(98);
+	}
+	if (n == 99)
+	{
+		dprintf(STDERR_FILENO, "Erro\r: Can't write to file %s\n", p);
+		exit(99);
+	}
+}
+/**
+ * main - copy a file
+ * @ac: the number of arguments
+ * @av: arguments
+ * Return: nothing
+ */
+int main(int ac, char *av[])
 {
 	int ff, ft, rff, ctf, cf;
 	char buf[1024];
 
 	if (ac != 3)
-	{
-		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
-		exit(97);
-	}
+		printerror(97, av[1]);
 	if (av[1] == NULL)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
-		exit(98);
-	}
+		printerror(98, av[1]);
 	if (av[2] == NULL)
-	{
-		dprintf(STDERR_FILENO, "Erro\r: Can't write to file %s\n", av[2]);
-		exit(99);
-	}
+		printerror(99, av[2]);
 	ff = open(av[1], O_RDONLY);
 	rff = read(ff, buf, 1024);
 	if (rff == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
-		exit(98);
-	}
+		printerror(98, av[1]);
 	ft = open(av[2], O_CREAT | O_WRONLY | O_TRUNC | O_APPEND, 0664);
 	while (rff != 0)
 	{
 		ctf = write(ft, buf, rff);
 		if (ctf == -1)
-		{
-			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
-			exit(99);
-		}
+			printerror(99, av[2]);
 		rff = read(ff, buf, 1024);
 		if (rff == -1)
-		{
-			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
-			exit(98);
-		}
+			printerror(98, av[1]);
 	}
 	cf = close(ff);
 	if (cf == -1)
