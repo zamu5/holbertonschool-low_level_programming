@@ -44,8 +44,7 @@ int main(int ac, char *av[])
 	if (av[2] == NULL)
 		printerror(99, av[2]);
 	ff = open(av[1], O_RDONLY);
-	ft = open(av[2], O_WRONLY | O_CREAT | O_TRUNC,
-		       S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
+	ft = open(av[2], O_CREAT | O_WRONLY | O_TRUNC | O_APPEND, 0664);
 	r = read(ff, buf, 1024);
 	if (r == -1)
 		printerror(98, av[1]);
