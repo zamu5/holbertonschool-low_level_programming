@@ -45,7 +45,7 @@ int main(int ac, char *av[])
 	rff = read(ff, buf, 1024);
 	if (rff == -1)
 		printerror(98, av[1]);
-	ft = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC,
+	ft = open(av[2], O_WRONLY | O_CREAT | O_TRUNC,
 		       S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
 	while (rff != 0)
 	{
