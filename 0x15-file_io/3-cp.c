@@ -23,6 +23,11 @@ void printerror(int n, char *p)
 		dprintf(STDERR_FILENO, "Erro\r: Can't write to file %s\n", p);
 		exit(99);
 	}
+	if (n == 992)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", p);
+		exit(99);
+	}
 }
 /**
  * main - copy a file
@@ -51,7 +56,7 @@ int main(int ac, char *av[])
 	{
 		e = write(ft, buf, r);
 		if (e == -1 || e != r)
-			printerror(99, av[2]);
+			printerror(992, av[2]);
 		r = read(ff, buf, 1024);
 		if (r == -1)
 			printerror(98, av[1]);
