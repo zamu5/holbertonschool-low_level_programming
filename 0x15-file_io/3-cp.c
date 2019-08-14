@@ -39,7 +39,8 @@ int main(int ac, char *av[])
 	if (ac != 3)
 		printerror(97, av[1]);
 	if (av[1] == NULL)
-		printerror(98, av[1]);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]),
+			exit(98);
 	if (av[2] == NULL)
 		printerror(99, av[2]);
 	ff = open(av[1], O_RDONLY);
