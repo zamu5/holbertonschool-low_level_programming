@@ -37,6 +37,13 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 		}
 		if (i == (idx - 1))
 		{
+			if ((*copy).next == NULL)
+			{
+				(*new).next = NULL;
+				(*new).prev = copy;
+				(*copy).next = new;
+				return (new);
+			}
 			temp = (*copy).next;
 			(*new).next = temp;
 			(*temp).prev = new;
