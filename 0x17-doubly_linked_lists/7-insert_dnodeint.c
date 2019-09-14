@@ -23,11 +23,27 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	new = malloc(sizeof(dlistint_t));
 	if (!new)
 		return (NULL);
-	temp = (*copy).next;
 	(*new).n = n;
-	(*new).next = temp;
-	(*new).prev = copy;
-	(*copy).next = new;
-	(*temp).prev = new;
+	if (copy == NULL)
+	{
+		(*new).next = NULL;
+		(*new).prev = NULL;
+		*h = new;
+	}
+	else if ((*copy).next == NULL)
+	{
+		(*new).next = NULL;
+		(*new).prev = copy;
+		(*copy).next = new;
+	}
+	else
+	{
+		temp = (*copy).next;
+		(*new).n = n;
+		(*new).next = temp;
+		(*new).prev = copy;
+		(*copy).next = new;
+		(*temp).prev = new;
+	}
 	return (new);
 }
