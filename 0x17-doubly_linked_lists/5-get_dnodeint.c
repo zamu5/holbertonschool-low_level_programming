@@ -15,6 +15,8 @@ dlistint_t *get_dnodeint_at_index(dlistint_t *head, unsigned int index)
 	copy = head;
 	while (i != index)
 	{
+		if (copy == NULL)
+			return (NULL);
 		copy = (*copy).next;
 		i++;
 	}
