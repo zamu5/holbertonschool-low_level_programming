@@ -7,44 +7,26 @@
  */
 int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 {
-	dlistint_t *t1, *t2, *t3;
-	unsigned int i = 0;
+dlistint_t *tmp_del, *tmp_head;
 
-	t1 = *head;
-	if (head == NULL || *head == NULL)
+	if (!head || !*head)
 		return (-1);
-	while (t1 != NULL)
+	tmp_head = *head;
+	if (index == 0)
 	{
-		if (i == (index - 1))
-		{
-			if ((*t1).next == NULL)
-				return (-1);
-			t2 = (*t1).next;
-			t3 = (*t2).next;
-			(*t1).next = t3;
-			(*t3).prev = t1;
-			free(t2);
-			return (1);
-		}
-		if (index == 0)
-		{
-			if ((*t1).next != NULL)
-			{
-				t2 = (*t1).next;
-				(*t2).prev = NULL;
-				*head = t2;
-				free(t1);
-				return (1);
-			}
-			if (t1 == NULL)
-				return (-1);
-			free(t1);
-			*head = NULL;
-			return (1);
-		}
-		i++;
-		t1 = (*t1).next;
+		*head = (*head)->next;
+		(*head)->prev = NULL;
+		free(tmp_head);
+		return (1);
 	}
-
-	return (-1);
+	for ( ; index > 1 && tmp_head && tmp_head->next; index--)
+		tmp_head = tmp_head->next;
+	if (!tmp_head->next)
+		return (-1);
+	tmp_del = tmp_head->next;
+	tmp_head->next = tmp_del->next ? tmp_del->next : NULL;
+	if (tmp_del->next)
+		tmp_del->next->prev = tmp_head;
+	free(tmp_del);
+	return (1);
 }
