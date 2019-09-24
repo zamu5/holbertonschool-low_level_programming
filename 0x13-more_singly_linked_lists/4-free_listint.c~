@@ -1,0 +1,35 @@
+/* #include "lists.h" */
+/* /\** */
+/*  * free_listint - free the list */
+/*  * @head: a pointer to the head of the list */
+/*  * Return: nothing */
+/*  *\/ */
+/* void free_listint(listint_t *head) */
+/* { */
+/* 	listint_t *copy; */
+/*  	if (head != NULL) */
+/*  	{ */
+/* 		copy = (*head).next; */
+/*  		free(head); */
+/*  		head = copy; */
+/*  		free_listint(head); */
+/*  	} */
+/*  	free(copy); */
+/* } */
+#include "lists.h"
+/**
+ * free_listint - frees a listint_t list.
+ * @head: pointer to first node.
+ */
+void free_listint(listint_t *head)
+{
+	listint_t *cursor;
+
+	while (head != NULL)
+	{
+		cursor = head;
+		head = head->next;
+		free(cursor);
+	}
+	free(head);
+}
