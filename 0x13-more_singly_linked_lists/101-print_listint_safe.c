@@ -23,7 +23,7 @@ size_t print_listint_safe(const listint_t *head)
 			if (copy1 == copy2)
 			{
 				printf("-> [%p] %d\n", (void *)copy1, (*copy1).n);
-				return (cont);
+			return (cont);
 			}
 		copy2 = (*copy2).next;
 		i++;

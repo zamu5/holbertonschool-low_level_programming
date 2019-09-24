@@ -31,6 +31,8 @@ int main(int argc, char *argv[])
 			printf("0\n");
 	}
 	else
+	{
 		printf("Error\n");
+	}
 	return (0);
 }
