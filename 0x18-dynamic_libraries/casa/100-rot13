@@ -1,2 +1,0 @@
-#!/bin/bash
-cat | tr 'a-zA-Z' 'A-MN-Za-mn-z'
