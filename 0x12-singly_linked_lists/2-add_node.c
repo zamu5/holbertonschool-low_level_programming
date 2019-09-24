@@ -5,7 +5,7 @@
  * @str: new element
  * Return: the address of the new element
  */
-list_t *add_node(list_t **head, const char *str)
+list_t *add_node(list_t *head, const char *str)
 {
 	list_t *last;
 	int i = 0;
@@ -18,7 +18,7 @@ list_t *add_node(list_t **head, const char *str)
 		return (NULL);
 	(*last).str = strdup(str);
 	(*last).len = i;
-	(*last).next = *head;
-	*head = last;
-	return (*head);
+	(*last).next = head;
+	head = last;
+       	return (head);
 }
