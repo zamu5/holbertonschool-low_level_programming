@@ -6,11 +6,13 @@
  * @value: value
  * Return: 1 in succes 0 in faik
  */
-int hash_table_set(hash_table_t *ht,const char *key,const char *value)
+int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int idx;
 	hash_node_t *new, *old;
 
+	if (!ht || !key || !value || key[0] == '\0')
+		return (0);
 	idx = key_index((unsigned char *)key, 1024);
 	new = (*ht).array[idx];
 	if (new == NULL)
@@ -26,9 +28,7 @@ int hash_table_set(hash_table_t *ht,const char *key,const char *value)
 	else
 	{
 		while (new && strcmp((*new).key, key) != 0)
-		{
 			new = (*new).next;
-		}
 		if (strcmp((*new).key, key) == 0)
 		{
 			free((*new).value);
