@@ -3,16 +3,25 @@ void hash_table_print(const hash_table_t *ht)
 {
 	unsigned long int idx = 0;
 	int flag = 0;
+	hash_node_t *print;
 
 	putchar('{');
 	for (; idx <= (*ht).size; idx++)
 	{
-		if((*ht).array[idx])
+		print = (*ht).array[idx];
+		if(print)
 		{
 			if (flag)
 				printf(", ");
-			printf("'%s': '%s'", (*(*ht).array[idx]).key, (*(*ht).array[idx]).value);
+			printf("'%s': '%s'", (*print).key, (*print).value);
 			flag = 1;
+			while ((*print).next)
+			{
+				print = (*print).next;
+				if (flag)
+					printf(", ");
+				printf("'%s': '%s'", (*print).key, (*print).value);
+			}
 		}
 	}
 	printf("}\n");
