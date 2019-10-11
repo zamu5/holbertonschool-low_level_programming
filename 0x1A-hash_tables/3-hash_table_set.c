@@ -21,6 +21,7 @@ int hash_table_set(hash_table_t *ht,const char *key,const char *value)
 		(*new).key = strdup(key);
 		(*new).value = strdup(value);
 		(*new).next = NULL;
+		(*ht).array[idx] = new;
 	}
 	else
 	{
@@ -31,6 +32,7 @@ int hash_table_set(hash_table_t *ht,const char *key,const char *value)
 		(*new).key = strdup(key);
 		(*new).value = strdup(value);
 		(*new).next = old;
+		(*ht).array[idx] = new;
 	}
 	return (1);
 }
