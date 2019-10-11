@@ -10,10 +10,10 @@ char *hash_table_get(const hash_table_t *ht, const char *key)
 	unsigned long int idx;
 	hash_node_t *check;
 
-	idx = key_index((unsigned char *)key, (*ht).size);
-
-	if (!ht || !key || *key == 48)
+	if (!ht || !key)
 		return (NULL);
+
+	idx = key_index((unsigned char *)key, (*ht).size);
 	check = (*ht).array[idx];
 	if (check)
 	{
