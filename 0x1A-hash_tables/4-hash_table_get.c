@@ -12,7 +12,7 @@ char *hash_table_get(const hash_table_t *ht, const char *key)
 
 	idx = key_index((unsigned char *)key, (*ht).size);
 
-	if (!ht || !key || strlen(key) == 0)
+	if (!ht || !key || *key = 48)
 		return (NULL);
 	check = (*ht).array[idx];
 	if (check)
