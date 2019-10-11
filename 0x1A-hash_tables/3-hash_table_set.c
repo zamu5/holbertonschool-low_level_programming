@@ -26,14 +26,14 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 			return (0);
 		(*new).key = strdup(key);
 		(*new).value = strdup(value);
-		(*new).next = (*ht).array[idx] ;
+		(*new).next = (*ht).array[idx];
 	}
 	else
 	{
 		new = (*ht).array[idx];
 		while (new && strcmp((*new).key, key) != 0)
 			new = (*new).next;
-		if (strcmp((*new).key, key) == 0)
+		if (new && strcmp((*new).key, key) == 0)
 		{
 			free((*new).value);
 			(*new).value = strdup(value);
