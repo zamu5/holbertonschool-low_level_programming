@@ -8,22 +8,22 @@
  */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-	hash_node_t *new, *check;
+	hash_node_t *new;
 	unsigned long int idx;
 
 	if (!ht || !key || !value || strlen(key) == 0)
 		return (0);
 	idx = key_index((unsigned char *)key, (*ht).size);
-	check = (*ht).array[idx];
-	if (check)
+	new = (*ht).array[idx];
+	if (new)
 	{
-		while (check && strcmp((*check).key, key) != 0)
-			check = (*check).next;
-		if (check && strcmp((*check).key, key) == 0)
+		while (new && strcmp((*new).key, key) != 0)
+			new = (*new).next;
+		if (new && strcmp((*new).key, key) == 0)
 		{
-			free((*check).value);
-			(*check).value = strdup(value);
-			if (!(*check).value)
+			free((*new).value);
+			(*new).value = strdup(value);
+			if (!(*new).value)
 				return (0);
 			return (1);
 		}
