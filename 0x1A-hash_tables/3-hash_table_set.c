@@ -6,15 +6,31 @@
  * @value: value
  * Return: 1 in succes 0 in faik
  */
-int hash_table_set(hash_table_t *ht, const char *key, const char *value)
+int hash_table_set(hash_table_t *ht,const char *key,const char *value)
 {
 	unsigned long int idx;
+	hash_node_t *new, *old;
 
-	idx = key_index(key, 1024);
-	(*ht).array[idx] = malloc(hash_node_t);
-	if ((*ht).array[idx] == NULL)
-		return (0);
-	(*(*ht).array[idx]).key = key;
-	(*(*ht).array[idx]).value = value;
+	idx = key_index((unsigned char *)key, 1024);
+	new = (*ht).array[idx];
+	if (new == NULL)
+	{
+		new  = malloc(sizeof(hash_node_t));
+		if (new == NULL)
+			return (0);
+		(*new).key = strdup(key);
+		(*new).value = strdup(value);
+		(*new).next = NULL;
+	}
+	else
+	{
+		old = new;
+		new  = malloc(sizeof(hash_node_t));
+		if (new == NULL)
+			return (0);
+		(*new).key = strdup(key);
+		(*new).value = strdup(value);
+		(*new).next = old;
+	}
 	return (1);
 }
