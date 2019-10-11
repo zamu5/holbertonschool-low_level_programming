@@ -1,4 +1,9 @@
 #include "hash_tables.h"
+/**
+ * hash_table_print - print a hashtable
+ * @ht: hashtable
+ * Return - nothing
+ */
 void hash_table_print(const hash_table_t *ht)
 {
 	unsigned long int idx = 0;
@@ -6,12 +11,12 @@ void hash_table_print(const hash_table_t *ht)
 	hash_node_t *print;
 
 	if (!ht)
-		printf("{}");
+		return;
 	putchar('{');
 	for (; idx <= (*ht).size; idx++)
 	{
 		print = (*ht).array[idx];
-		if(print)
+		if (print)
 		{
 			if (flag)
 				printf(", ");
