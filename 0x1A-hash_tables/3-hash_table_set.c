@@ -19,18 +19,18 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	if (!k || !v)
 		return (0);
 	idx = key_index((unsigned char *)key, 1024);
-	new = (*ht).array[idx];
-	if (new == NULL)
+	if (!(*ht).array[idx])
 	{
 		new  = malloc(sizeof(hash_node_t));
 		if (new == NULL)
 			return (0);
 		(*new).key = strdup(key);
 		(*new).value = strdup(value);
-		(*new).next = NULL;
+		(*new).next = (*ht).array[idx] ;
 	}
 	else
 	{
+		new = (*ht).array[idx];
 		while (new && strcmp((*new).key, key) != 0)
 			new = (*new).next;
 		if (strcmp((*new).key, key) == 0)
