@@ -12,7 +12,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	hash_node_t *new, *old;
 	char *k, *v;
 
-	if (!ht || !key || !value || key[0] == '\0')
+	if (!ht || !key || !value || strlen(key) == 0)
 		return (0);
 	k = strdup(key);
 	v = strdup(value);
