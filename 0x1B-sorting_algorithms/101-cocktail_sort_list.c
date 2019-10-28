@@ -52,6 +52,8 @@ void increase_sort(listint_t **ptr, listint_t **limit, listint_t **list)
 		if (aux->n > aux->next->n)
 		{
 			swap_list(&aux, &(aux->next), 0);
+			if (aux->prev == NULL)
+				*list = aux;
 			print_list(*list);
 		}
 		aux = aux->next;
