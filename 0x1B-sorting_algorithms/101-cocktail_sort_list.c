@@ -106,6 +106,9 @@ void cocktail_sort_list(listint_t **list)
 {
 	listint_t *limit1, *limit2, *ptr;
 
+	if (!list || !(*list))
+		return;
+
 	limit1 = limit2 = NULL;
 	ptr = *list;
 
