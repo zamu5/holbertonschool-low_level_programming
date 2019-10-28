@@ -49,8 +49,8 @@ void _qsort(int *a, size_t low, size_t high, size_t size)
 		a[p] = tmp;
 		print_array(a, size);
 	}
-	if (w != high)
-		_qsort(a, w + 1, high, size);
 	if (low != w)
 		_qsort(a, low, w - 1, size);
+	if (w != high)
+		_qsort(a, w + 1, high, size);
 }
