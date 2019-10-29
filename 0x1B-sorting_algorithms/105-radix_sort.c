@@ -8,12 +8,14 @@
  */
 void radix_sort(int *array, size_t size)
 {
-	int flag = 1, change, n = 10;
+	int flag = 1, n = 10;
 	size_t i;
 
+	if (!array)
+		return;
 	while (flag)
 	{
-		change = 0;
+		flag = 0;
 		for (i = 1; i <  size; i++)
 		{
 here:
@@ -22,7 +24,7 @@ here:
 				array[i - 1] = array[i - 1] + array[i];
 				array[i] = array[i - 1] - array[i];
 				array[i - 1] = array[i - 1] - array[i];
-				change = 1;
+				flag = 1;
 				if ((i - 1) > 0)
 				{
 					i--;
@@ -30,10 +32,8 @@ here:
 				}
 			}
 		}
-		if (change)
+		if (flag)
 			print_array(array, size);
 		n = n * 10;
-		if (!change)
-			flag = 0;
 	}
 }
