@@ -30,9 +30,9 @@ void radix_sort(int *array, size_t size)
 		}
 		if (flag)
 		{
-			print_array(array, size);
 			n = n * 10;
 		}
+		print_array(array, size);
 
 	}
 }
