@@ -25,7 +25,8 @@ here:
 				change = 1;
 				if ((i - 1) > 0)
 				{
-					i--, goto here;
+					i--;
+					goto here;
 				}
 			}
 		}
