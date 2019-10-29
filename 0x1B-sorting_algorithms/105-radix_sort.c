@@ -26,7 +26,7 @@ void radix_sort(int *array, size_t size)
 					i = i - 2;
 			}
 		}
-		if (flag || n == 10)
+		if (flag)
 			print_array(array, size);
 		n = n * 10;
 	}
