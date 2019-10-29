@@ -11,6 +11,9 @@ void radix_sort(int *array, size_t size)
 	int flag = 1, n = 10;
 	size_t i;
 
+	if (!array || size == 0)
+		return;
+
 	while (flag)
 	{
 		flag = 0;
