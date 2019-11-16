@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 def island_perimeter(grid):
     perimeter = 0
-    for i in range(0, len(grid) - 1):
-        for j in range(0, len(grid[i]) - 1):
+    for i in range(0, len(grid)):
+        for j in range(0, len(grid[i])):
             if grid[i][j] is 1:
                 if i is 0:
                     perimeter += 1
